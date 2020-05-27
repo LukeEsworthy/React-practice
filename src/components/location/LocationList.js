@@ -23,7 +23,7 @@ const LocationList = () => {
   return (
     <div className="container-cards">
       {locations.map((location) => (
-        <LocationCard />
+        <LocationCard key={location.id} location={location} />
       ))}
     </div>
   );

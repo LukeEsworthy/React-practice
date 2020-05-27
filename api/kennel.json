@@ -10,9 +10,9 @@
     { "id": 3, "name": "James McAvoy", "title": "Master Pet Wrangler" }
   ],
   "locations": [
-    { "id": 1, "address": "500 Puppy Way, Nashville, TN 37211" },
-    { "id": 2, "address": "1234 Main Street, Franklin, TN 37067" },
-    { "id": 3, "address": "5678 Pet Place, Murfreesboro, TN 37555" }
+    { "id": 1, "area": "North Nashville", "address": "500 Puppy Way, Nashville, TN 37211" },
+    { "id": 2, "area": "Downtown Franklin", "address": "1234 Main Street, Franklin, TN 37067" },
+    { "id": 3, "area": "Murfreesboro", "address": "5678 Pet Place, Murfreesboro, TN 37555" }
   ],
   "owners": [
     { "id": 1, "phoneNumber": "615-555-1234", "name": "Robin Williams" },
