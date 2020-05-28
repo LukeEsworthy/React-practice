@@ -1,16 +1,16 @@
 import React from "react";
 
-const OwnerCard = () => {
+const OwnerCard = (props) => {
   return (
     <div className="card">
       <div className="content">
         <h3>Owned by:</h3>
-        <h4>Bill Murray</h4>
-        <p>
-          Lion manx and tomcat. Tiger mouser. Birman. Russian blue panther.
-          Birman maine coon. Malkin tomcat so american shorthair yet leopard but
-          mouser but thai. Malkin egyptian mau. Cornish rex persian and jaguar.
-        </p>
+        <h4>{props.owner.name}</h4>
+        <p>Phone number:</p>
+        <p>{props.owner.phoneNumber}</p>
+        <button type="button" onClick={() => props.deleteOwner(props.owner.id)}>
+          Remove
+        </button>
       </div>
     </div>
   );

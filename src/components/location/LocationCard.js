@@ -1,12 +1,18 @@
 import React from "react";
 
-const LocationCard = () => {
+const LocationCard = (props) => {
   return (
     <div className="card">
       <div className="card-content">
-        <h3>North Nashville Location:</h3>
-        <p>500 Puppy Way</p>
-        <p>Nashville, TN 37211</p>
+        <h3>{props.location.area}</h3>
+        <p>Address:</p>
+        <p>{props.location.address}</p>
+        <button
+          type="button"
+          onClick={() => props.deleteLocation(props.location.id)}
+        >
+          Close Location
+        </button>
       </div>
     </div>
   );

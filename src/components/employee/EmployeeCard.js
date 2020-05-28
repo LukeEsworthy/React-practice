@@ -1,14 +1,18 @@
 import React from "react";
 
-const EmployeeCard = () => {
+const EmployeeCard = (props) => {
   return (
     <div className="card">
       <div className="card-content">
         <h3>Employee:</h3>
-        <h4>Chevy Chase</h4>
-        <p>Employee ID: 12345678</p>
-        <p>Title: Director of Poop Scooping</p>
-        <p>Salary: $11/hr plus one bag of cat food per month</p>
+        <h4>{props.employee.name}</h4>
+        <p>Title: {props.employee.title}</p>
+        <button
+          type="button"
+          onClick={() => props.deleteEmployee(props.employee.id)}
+        >
+          FIRE
+        </button>
       </div>
     </div>
   );
