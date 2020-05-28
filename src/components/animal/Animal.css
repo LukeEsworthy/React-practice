@@ -27,3 +27,7 @@
 .content-petname {
   color: darkslategrey;
 }
+
+button {
+  background-color: red;
+}
