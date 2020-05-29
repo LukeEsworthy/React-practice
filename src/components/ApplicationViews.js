@@ -49,6 +49,7 @@ const ApplicationViews = () => {
           return (
             <LocationDetail
               locationId={parseInt(props.match.params.locationId)}
+              {...props}
             />
           );
         }}
