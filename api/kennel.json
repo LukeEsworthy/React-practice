@@ -7,13 +7,13 @@
     },
     {
       "id": 2,
-      "name": "Decker",
-      "breed": "German Shepherd"
+      "name": "Goldie",
+      "breed": "St. Bernard"
     },
     {
       "id": 3,
-      "name": "Esme",
-      "breed": "Pitbull"
+      "name": "Lucky",
+      "breed": "Pomeranian"
     },
     {
       "id": 4,
@@ -24,6 +24,21 @@
       "id": 5,
       "name": "Logan",
       "breed": "Husky mix"
+    },
+    {
+      "id": 6,
+      "name": "Leo",
+      "breed": "Aussie"
+    },
+    {
+      "id": 7,
+      "name": "Küblai",
+      "breed": "Doberman"
+    },
+    {
+      "id": 8,
+      "name": "Bröo",
+      "breed": "Doberman"
     }
   ],
   "employees": [
@@ -90,6 +105,16 @@
       "id": 4,
       "phoneNumber": "615-555-5678",
       "name": "Vin Diesel"
+    },
+    {
+      "id": 5,
+      "phoneNumber": "615-555-1290",
+      "name": "Hugh Jackman"
+    },
+    {
+      "id": 6,
+      "phoneNumber": "615-555-4777",
+      "name": "Kasia Pelasia"
     }
   ]
 }
