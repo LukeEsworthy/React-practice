@@ -54,7 +54,11 @@ const ApplicationViews = () => {
         exact
         path="/locations"
         render={(props) => {
-          return <LocationList />;
+          if (isAuthenticated()) {
+            return <LocationList />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
       <Route
@@ -71,13 +75,21 @@ const ApplicationViews = () => {
       <Route
         path="/employees"
         render={(props) => {
-          return <EmployeeList />;
+          if (isAuthenticated()) {
+            return <EmployeeList />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
       <Route
         path="/owners"
         render={(props) => {
-          return <OwnerList />;
+          if (isAuthenticated()) {
+            return <OwnerList />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
       <Route path="/login" component={Login} />
