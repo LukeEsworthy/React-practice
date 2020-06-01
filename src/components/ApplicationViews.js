@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
@@ -8,8 +8,11 @@ import OwnerList from "./owner/OwnerList";
 import AnimalDetail from "./animal/AnimalDetail";
 import LocationDetail from "./location/LocationDetail";
 import AnimalForm from "./animal/AnimalForm";
+import Login from "./auth/Login";
 
 const ApplicationViews = () => {
+  const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
+
   return (
     <React.Fragment>
       <Route
@@ -23,7 +26,11 @@ const ApplicationViews = () => {
         exact
         path="/animals"
         render={(props) => {
-          return <AnimalList {...props} />;
+          if (isAuthenticated()) {
+            return <AnimalList {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
       <Route
@@ -47,7 +54,11 @@ const ApplicationViews = () => {
         exact
         path="/locations"
         render={(props) => {
-          return <LocationList />;
+          if (isAuthenticated()) {
+            return <LocationList />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
       <Route
@@ -64,15 +75,24 @@ const ApplicationViews = () => {
       <Route
         path="/employees"
         render={(props) => {
-          return <EmployeeList />;
+          if (isAuthenticated()) {
+            return <EmployeeList />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
       <Route
         path="/owners"
         render={(props) => {
-          return <OwnerList />;
+          if (isAuthenticated()) {
+            return <OwnerList />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
+      <Route path="/login" component={Login} />
     </React.Fragment>
   );
 };

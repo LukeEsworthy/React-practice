@@ -44,6 +44,11 @@
       "name": "Samson",
       "breed": "Golden Retriever",
       "id": 9
+    },
+    {
+      "name": "Samantha",
+      "breed": "Pointer",
+      "id": 10
     }
   ],
   "employees": [
