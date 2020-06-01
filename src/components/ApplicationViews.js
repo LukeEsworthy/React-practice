@@ -8,6 +8,7 @@ import OwnerList from "./owner/OwnerList";
 import AnimalDetail from "./animal/AnimalDetail";
 import LocationDetail from "./location/LocationDetail";
 import AnimalForm from "./animal/AnimalForm";
+import LocationForm from "./location/LocationForm";
 import Login from "./auth/Login";
 
 const ApplicationViews = () => {
@@ -55,7 +56,7 @@ const ApplicationViews = () => {
         path="/locations"
         render={(props) => {
           if (isAuthenticated()) {
-            return <LocationList />;
+            return <LocationList {...props} />;
           } else {
             return <Redirect to="/login" />;
           }
@@ -70,6 +71,12 @@ const ApplicationViews = () => {
               {...props}
             />
           );
+        }}
+      />
+      <Route
+        path="/locations/new"
+        render={(props) => {
+          return <LocationForm {...props} />;
         }}
       />
       <Route
