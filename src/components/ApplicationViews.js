@@ -14,6 +14,7 @@ import EmployeeForm from "./employee/EmployeeForm";
 import EmployeeEditForm from "./employee/EmployeeEditForm";
 import OwnerList from "./owner/OwnerList";
 import OwnerForm from "./owner/OwnerForm";
+import OwnerEditForm from "./owner/OwnerEditForm";
 import Login from "./auth/Login";
 
 const ApplicationViews = () => {
@@ -148,6 +149,16 @@ const ApplicationViews = () => {
         path="/owners/new"
         render={(props) => {
           return <OwnerForm {...props} />;
+        }}
+      />
+      <Route
+        path="/owners/:ownerId(\d+)/edit"
+        render={(props) => {
+          if (isAuthenticated()) {
+            return <OwnerEditForm {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
       <Route path="/login" component={Login} />
