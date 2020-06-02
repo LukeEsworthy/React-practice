@@ -59,8 +59,8 @@
     },
     {
       "id": 2,
-      "name": "Hugh Laurie",
-      "title": "Cat Feeder"
+      "name": "Hugh-A-Dog Laurie",
+      "breed": "Cat Feeder"
     },
     {
       "id": 3,
@@ -123,8 +123,8 @@
     },
     {
       "id": 4,
-      "phoneNumber": "615-555-5678",
-      "name": "Vin Diesel"
+      "name": "Vin Dieselgate",
+      "phoneNumber": "615-555-5678"
     },
     {
       "id": 5,
