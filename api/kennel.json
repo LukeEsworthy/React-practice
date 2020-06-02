@@ -71,6 +71,11 @@
       "id": 4,
       "name": "Chris Pine",
       "title": "Assistant to the Manager"
+    },
+    {
+      "name": "Luke Esworthy",
+      "title": "Cat King",
+      "id": 5
     }
   ],
   "locations": [
@@ -130,6 +135,11 @@
       "id": 6,
       "phoneNumber": "615-555-4777",
       "name": "Kasia Pelasia"
+    },
+    {
+      "name": "Tupac",
+      "phoneNumber": "615-555-7878",
+      "id": 7
     }
   ]
 }
