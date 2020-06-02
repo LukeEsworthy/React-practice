@@ -3,13 +3,13 @@ import LocationManager from "../../modules/LocationManager";
 import "./LocationDetail.css";
 
 const LocationDetail = (props) => {
-  const [location, setLocation] = useState({ area: "", address: "" });
+  const [location, setLocations] = useState({ area: "", address: "" });
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     //get(id) from LocationManager and hang on to the data; put it into state
     LocationManager.get(props.locationId).then((location) => {
-      setLocation({
+      setLocations({
         area: location.area,
         address: location.address,
       });

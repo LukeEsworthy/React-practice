@@ -2,12 +2,15 @@ import { Route, Redirect } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
+import AnimalDetail from "./animal/AnimalDetail";
+import AnimalForm from "./animal/AnimalForm";
+import AnimalEditForm from "./animal/AnimalEditForm";
 import LocationList from "./location/LocationList";
+import LocationDetail from "./location/LocationDetail";
+import LocationForm from "./location/LocationForm";
+import LocationEditForm from "./location/LocationEditForm";
 import EmployeeList from "./employee/EmployeeList";
 import OwnerList from "./owner/OwnerList";
-import AnimalDetail from "./animal/AnimalDetail";
-import LocationDetail from "./location/LocationDetail";
-import AnimalForm from "./animal/AnimalForm";
 import Login from "./auth/Login";
 
 const ApplicationViews = () => {
@@ -34,6 +37,7 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/animals/:animalId(\d+)"
         render={(props) => {
           return (
@@ -51,17 +55,28 @@ const ApplicationViews = () => {
         }}
       />
       <Route
-        exact
-        path="/locations"
+        path="/animals/:animalId(\d+)/edit"
         render={(props) => {
           if (isAuthenticated()) {
-            return <LocationList />;
+            return <AnimalEditForm {...props} />;
           } else {
             return <Redirect to="/login" />;
           }
         }}
       />
       <Route
+        exact
+        path="/locations"
+        render={(props) => {
+          if (isAuthenticated()) {
+            return <LocationList {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
+      <Route
+        exact
         path="/locations/:locationId(\d+)"
         render={(props) => {
           return (
@@ -70,6 +85,22 @@ const ApplicationViews = () => {
               {...props}
             />
           );
+        }}
+      />
+      <Route
+        path="/locations/new"
+        render={(props) => {
+          return <LocationForm {...props} />;
+        }}
+      />
+      <Route
+        path="/locations/:locationId(\d+)/edit"
+        render={(props) => {
+          if (isAuthenticated()) {
+            return <LocationEditForm {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
       <Route
