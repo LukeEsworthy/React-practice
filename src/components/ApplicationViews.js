@@ -8,8 +8,9 @@ import AnimalEditForm from "./animal/AnimalEditForm";
 import LocationList from "./location/LocationList";
 import LocationDetail from "./location/LocationDetail";
 import LocationForm from "./location/LocationForm";
-import OwnerList from "./owner/OwnerList";
+import LocationEditForm from "./location/LocationEditForm";
 import EmployeeList from "./employee/EmployeeList";
+import OwnerList from "./owner/OwnerList";
 import Login from "./auth/Login";
 
 const ApplicationViews = () => {
@@ -75,6 +76,7 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/locations/:locationId(\d+)"
         render={(props) => {
           return (
@@ -89,6 +91,16 @@ const ApplicationViews = () => {
         path="/locations/new"
         render={(props) => {
           return <LocationForm {...props} />;
+        }}
+      />
+      <Route
+        path="/locations/:locationId(\d+)/edit"
+        render={(props) => {
+          if (isAuthenticated()) {
+            return <LocationEditForm {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
       <Route

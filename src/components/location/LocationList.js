@@ -4,13 +4,13 @@ import LocationManager from "../../modules/LocationManager";
 
 const LocationList = (props) => {
   // The initial state is an empty array
-  const [locations, setLocation] = useState([]);
+  const [locations, setLocations] = useState([]);
 
   const getLocations = () => {
     // After the data comes back from the API, we
     //  use the setLocation function to update state
     return LocationManager.getAll().then((locationsFromAPI) => {
-      setLocation(locationsFromAPI);
+      setLocations(locationsFromAPI);
     });
   };
 
@@ -21,7 +21,7 @@ const LocationList = (props) => {
 
   const deleteLocation = (id) => {
     LocationManager.delete(id).then(() =>
-      LocationManager.getAll().then(setLocation)
+      LocationManager.getAll().then(setLocations)
     );
   };
 
@@ -43,8 +43,9 @@ const LocationList = (props) => {
         {locations.map((location) => (
           <LocationCard
             key={location.id}
-            location={location}
+            storeLocation={location}
             deleteLocation={deleteLocation}
+            {...props}
           />
         ))}
       </div>

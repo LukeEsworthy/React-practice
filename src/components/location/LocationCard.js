@@ -5,16 +5,24 @@ const LocationCard = (props) => {
   return (
     <div className="card">
       <div className="card-content">
-        <h3>{props.location.area}</h3>
+        <h3>{props.storeLocation.area}</h3>
         <p>Address:</p>
-        <p>{props.location.address}</p>
+        <p>{props.storeLocation.address}</p>
         <button
           type="button"
-          onClick={() => props.deleteLocation(props.location.id)}
+          onClick={() => props.deleteLocation(props.storeLocation.id)}
         >
           Close Location
         </button>
-        <Link to={`/locations/${props.location.id}`}>
+        <button
+          type="button"
+          onClick={() =>
+            props.history.push(`/locations/${props.storeLocation.id}/edit`)
+          }
+        >
+          Edit
+        </button>
+        <Link to={`/locations/${props.storeLocation.id}`}>
           <button>Details</button>
         </Link>
       </div>

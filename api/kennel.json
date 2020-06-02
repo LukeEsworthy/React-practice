@@ -12,7 +12,7 @@
     },
     {
       "id": 3,
-      "name": "Laki",
+      "name": "Lucky",
       "breed": "Pomeranian"
     },
     {
@@ -93,6 +93,11 @@
       "id": 4,
       "area": "Brentwood",
       "address": "5006 Maryland Way, Brentwood, TN 37027"
+    },
+    {
+      "area": "Here",
+      "address": "There",
+      "id": 5
     }
   ],
   "owners": [

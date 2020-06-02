@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LocationManager from "../../modules/LocationManager";
 import "./LocationForm.css";
 
-const LocationForm = (props) => {
+const LocationEditForm = (props) => {
   const [location, setLocations] = useState({ area: "", address: "" });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -12,20 +12,28 @@ const LocationForm = (props) => {
     setLocations(stateToChange);
   };
 
-  /*  Local method for validation, set loadingStatus, create location object, invoke the LocationManager post method, and redirect to the full location list
-   */
-  const constructNewLocation = (evt) => {
+  const updateExistingLocation = (evt) => {
     evt.preventDefault();
-    if (location.name === "" || location.breed === "") {
-      window.alert("Please input a location area and address");
-    } else {
-      setIsLoading(true);
-      // Create the location and redirect user to location list
-      LocationManager.post(location).then(() =>
-        props.history.push("/locations")
-      );
-    }
+    setIsLoading(true);
+
+    // This is an edit, so we need the id
+    const editedLocation = {
+      id: props.match.params.locationId,
+      area: location.area,
+      address: location.address,
+    };
+
+    LocationManager.update(editedLocation).then(() =>
+      props.history.push("/locations")
+    );
   };
+
+  useEffect(() => {
+    LocationManager.get(props.match.params.locationId).then((location) => {
+      setLocations(location);
+      setIsLoading(false);
+    });
+  }, [props.match.params.locationId]);
 
   return (
     <>
@@ -35,17 +43,20 @@ const LocationForm = (props) => {
             <input
               type="text"
               required
+              className="form-control"
               onChange={handleFieldChange}
               id="area"
-              placeholder="Location area"
+              value={location.area}
             />
-            <label htmlFor="area">Area</label>
+            <label htmlFor="area">Location area</label>
+
             <input
               type="text"
               required
+              className="form-control"
               onChange={handleFieldChange}
               id="address"
-              placeholder="Address"
+              value={location.address}
             />
             <label htmlFor="address">Address</label>
           </div>
@@ -53,7 +64,8 @@ const LocationForm = (props) => {
             <button
               type="button"
               disabled={isLoading}
-              onClick={constructNewLocation}
+              onClick={updateExistingLocation}
+              className="btn btn-primary"
             >
               Submit
             </button>
@@ -64,4 +76,4 @@ const LocationForm = (props) => {
   );
 };
 
-export default LocationForm;
+export default LocationEditForm;
