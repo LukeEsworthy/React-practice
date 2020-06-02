@@ -71,6 +71,11 @@
       "id": 4,
       "name": "Chris Pine",
       "title": "Assistant to the Manager"
+    },
+    {
+      "name": "Luke Esworthy",
+      "title": "Cat King",
+      "id": 5
     }
   ],
   "locations": [

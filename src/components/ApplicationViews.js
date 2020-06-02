@@ -10,6 +10,7 @@ import LocationDetail from "./location/LocationDetail";
 import LocationForm from "./location/LocationForm";
 import LocationEditForm from "./location/LocationEditForm";
 import EmployeeList from "./employee/EmployeeList";
+import EmployeeForm from "./employee/EmployeeForm";
 import OwnerList from "./owner/OwnerList";
 import Login from "./auth/Login";
 
@@ -104,13 +105,20 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/employees"
         render={(props) => {
           if (isAuthenticated()) {
-            return <EmployeeList />;
+            return <EmployeeList {...props} />;
           } else {
             return <Redirect to="/login" />;
           }
+        }}
+      />
+      <Route
+        path="/employees/new"
+        render={(props) => {
+          return <EmployeeForm {...props} />;
         }}
       />
       <Route
