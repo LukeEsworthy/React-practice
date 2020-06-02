@@ -12,6 +12,7 @@ import LocationEditForm from "./location/LocationEditForm";
 import EmployeeList from "./employee/EmployeeList";
 import EmployeeForm from "./employee/EmployeeForm";
 import OwnerList from "./owner/OwnerList";
+import OwnerForm from "./owner/OwnerForm";
 import Login from "./auth/Login";
 
 const ApplicationViews = () => {
@@ -122,13 +123,20 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/owners"
         render={(props) => {
           if (isAuthenticated()) {
-            return <OwnerList />;
+            return <OwnerList {...props} />;
           } else {
             return <Redirect to="/login" />;
           }
+        }}
+      />
+      <Route
+        path="/owners/new"
+        render={(props) => {
+          return <OwnerForm {...props} />;
         }}
       />
       <Route path="/login" component={Login} />
