@@ -6,7 +6,7 @@ const LocationCard = (props) => {
     <div className="card">
       <div className="card-content">
         <h3>{props.storeLocation.area}</h3>
-        <p>Address:</p>
+        <h4>Address:</h4>
         <p>{props.storeLocation.address}</p>
         <button
           type="button"
