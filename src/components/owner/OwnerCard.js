@@ -4,10 +4,8 @@ const OwnerCard = (props) => {
   return (
     <div className="card">
       <div className="content">
-        <h3>Owned by:</h3>
-        <h4>{props.owner.name}</h4>
-        <p>Phone number:</p>
-        <p>{props.owner.phoneNumber}</p>
+        <h3>Owned by: {props.owner.name}</h3>
+        <p>Phone number: {props.owner.phoneNumber}</p>
         <button type="button" onClick={() => props.deleteOwner(props.owner.id)}>
           Remove
         </button>
