@@ -69,7 +69,7 @@
     },
     {
       "id": 2,
-      "name": "Hugh-A-Dog Laurie",
+      "name": "Hugh Laurie",
       "title": "Cat Feeder"
     },
     {
@@ -108,11 +108,6 @@
       "id": 4,
       "area": "Brentwood",
       "address": "5006 Maryland Way, Brentwood, TN 37027"
-    },
-    {
-      "area": "Here",
-      "address": "There",
-      "id": 5
     }
   ],
   "owners": [
